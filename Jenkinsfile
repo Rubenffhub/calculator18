@@ -13,8 +13,12 @@ pipeline {
         }
         stage('Code coverage') {
             steps {
-                sh './gradlew test jacocoTestReport'
-                sh './gradlew test jacocoTestCoverageVerification'
+                step{
+                   sh './gradlew test jacocoTestReport' 
+                }
+                step{
+                    sh './gradlew test jacocoTestCoverageVerification'
+                } 
             }
         }
     }
